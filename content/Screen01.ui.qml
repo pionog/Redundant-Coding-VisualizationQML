@@ -11,6 +11,7 @@ import QtQuick.Controls 6.5
 import UntitledProject
 
 Rectangle {
+    id: rectangle
     width: 1280
     height: 720
 
@@ -23,7 +24,7 @@ Rectangle {
         width: 300
         height: 720
         bottomPadding: 0
-        topPadding: 360
+        topPadding: 320
         leftPadding: 100
         spacing: 20
         layoutDirection: Qt.LeftToRight
@@ -32,16 +33,18 @@ Rectangle {
         horizontalItemAlignment: Grid.AlignHCenter
         rows: 4
         columns: 1
-        
+
         Button {
-            id: button
-            text: qsTr("Hover")
+            id: firstButton
+            width: 100
+            text: qsTr("Pierwszy algorytm")
+        }
+
+        Button {
+            id: secondButton
+            width: 100
+            text: qsTr("Drugi algorytm")
             highlighted: none.none
-            
-            Connections {
-                target: button
-                onClicked: console.log("clicked")
-            }
         }
 
         Button {
@@ -49,6 +52,11 @@ Rectangle {
             text: qsTr("Wyjście")
             leftInset: 0
             topInset: 0
+
+            Connections {
+                target: exitButton
+                onClicked: Qt.quit()
+            }
         }
     }
 
@@ -67,7 +75,7 @@ Rectangle {
             height: 420
             spacing: 0
             padding: 0
-            
+
             Image {
                 id: image
                 width: 980
